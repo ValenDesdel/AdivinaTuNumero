@@ -21,7 +21,7 @@ while respuesta != 3:
     elif respuesta == 2:
         limSuperior = resAlto - 1
     if limInferior == limSuperior:
-        print("Gracias por jugar tu numero era el: " + str(resAlto))
+        print("Gracias por jugar tu numero era el: " + str(limSuperior))
         print("Nos vemos pronto " + nombre + "!")      
         break
     if limInferior > limSuperior:
