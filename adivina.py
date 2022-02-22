@@ -6,59 +6,30 @@ respuesta = 0
 print("Hola " + nombre + " hoy voy a adivinar el número que pienses entre el 1 y el 20")
 print("Iré adivinando y debes decir si mi estimación es muy alta o baja")
 
+limInferior = 1
+limSuperior = 20
 
-print("El numero que pensaste es el 10? Selecciona en introduce una opción: ALTO:1 BAJO:2 ADIVINASTE:3")
-respuesta = input()
-respuesta = int(respuesta)
-resAlto = 10
-
-if respuesta == 1:
-    print("El numero que pensaste es el 5? Selecciona en introduce una opción: ALTO:1 BAJO:2 ADIVINASTE:3")
-    respuesta = input()
-    respuesta = int(respuesta)
-    resAlto = 15
+while respuesta != 3:
+    resAlto = random.randint(limInferior, limSuperior)
+    print("El numero que pensaste es el " + str(resAlto) + "? Selecciona una opción:")
+    print("1: Mi numero es mayor que " + str(resAlto))
+    print("2: Mi numero es menor que " + str(resAlto))
+    print("3: Adivinaste")
+    respuesta = int(input())
     if respuesta == 1:
-        while respuesta != 3:
-            resAlto = random.randint(1, 4)
-            resAlto = str(resAlto)
-            print("El numero que pensaste es el " + resAlto + "? Selecciona en introduce una opción: NO:2 ADIVINASTE:3")
-            respuesta = input()
-            respuesta = int(respuesta)
-
-    if respuesta == 2:
-        while respuesta != 3:
-            resAlto = random.randint(6, 9)
-            resAlto = str(resAlto)
-            print("El numero que pensaste es el " + resAlto + "? Selecciona en introduce una opción: NO:2 ADIVINASTE:3")
-            respuesta = input()
-            respuesta = int(respuesta)
-
-
-
-if respuesta == 2:
-    print("El numero que pensaste es el 15? Selecciona en introduce una opción: ALTO:1 BAJO:2 ADIVINASTE:3")
-    respuesta = input()
-    respuesta = int(respuesta)
-    resAlto = 15
-    if respuesta == 1:
-        while respuesta != 3:
-            resAlto = random.randint(11, 14)
-            resAlto = str(resAlto)
-            print("El numero que pensaste es el " + resAlto + "? Selecciona en introduce una opción: NO:2 ADIVINASTE:3")
-            respuesta = input()
-            respuesta = int(respuesta)
-
-    if respuesta == 2:
-        while respuesta != 3:
-            resAlto = random.randint(16, 20)
-            resAlto = str(resAlto)
-            print("El numero que pensaste es el " + resAlto + "? Selecciona en introduce una opción: NO:2 ADIVINASTE:3")
-            respuesta = input()
-            respuesta = int(respuesta)
-
+        limInferior = resAlto + 1
+    elif respuesta == 2:
+        limSuperior = resAlto - 1
+    if limInferior == limSuperior:
+        print("Gracias por jugar tu numero era el: " + str(limSuperior))
+        print("Nos vemos pronto " + nombre + "!")      
+        break
+    if limInferior > limSuperior:
+        print("Me estas mintiendo")
+        print("Ya no quiero jugar")
+        break
 
 
 if respuesta == 3:
-    resAlto = str(resAlto)
-    print("Gracias por jugar tu numero era el: " + resAlto + " nos vemos pronto " + nombre)
-
+    print("Gracias por jugar tu numero era el: " + str(resAlto))
+    print("Nos vemos pronto " + nombre + "!")
